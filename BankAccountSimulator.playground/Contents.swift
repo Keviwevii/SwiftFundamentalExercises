@@ -14,7 +14,7 @@ class BankAccountInterface {
     }
     
     
-    func createBankAccountType (numberPadKey: Int) {
+    func createBankAccount (numberPadKey: Int) {
         print("The selected option is \(numberPadKey).")
             switch numberPadKey {
             case 1:
@@ -23,6 +23,7 @@ class BankAccountInterface {
                 accountType = "credit"
             default:
                 print("Invalid input: \(numberPadKey).")
+                return
             }
             print("You have opened a \(accountType) account.")
     }
@@ -36,6 +37,6 @@ testAccount.greetCustomer()
 repeat {
     testAccount.accountSelection()
     let numberPadKey = Int.random(in:1...5)
-    testAccount.createBankAccountType(numberPadKey: numberPadKey)
+    testAccount.createBankAccount(numberPadKey: numberPadKey)
 } while testAccount.accountType == ""
 
