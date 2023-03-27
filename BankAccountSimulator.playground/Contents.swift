@@ -15,7 +15,19 @@ class BankAccountInterface {
     
     func CreateBankAccountType (numberPadKey: Int) {
         print("The selected option is \(numberPadKey).")
+        switch numberPadKey {
+        case 1:
+            accountType = "debit"
+        case 2:
+            accountType = "credit"
+        default:
+            print("Invalid input: \(numberPadKey).")
+        }
+        print("You have opened a \(accountType) account.")
     }
 }
 
-
+var testAccount = BankAccountInterface()
+testAccount.GreetCustomer()
+testAccount.AccountSelection()
+testAccount.CreateBankAccountType(numberPadKey: 2)
