@@ -16,3 +16,12 @@ class LocalFile {
 
 let file = LocalFile(name: "image", fileExtension: "png")
 print(file.fullFileName)
+
+struct Tax {
+  var amount: Int = 5
+}
+var tax1 = Tax()
+var tax2 = tax1
+tax1.amount = 20
+print("\(tax1.amount), \(tax2.amount)")
+
