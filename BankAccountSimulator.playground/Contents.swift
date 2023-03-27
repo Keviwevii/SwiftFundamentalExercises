@@ -2,32 +2,40 @@
 
 class BankAccountInterface {
     
-    func GreetCustomer() {
+    var accountType = ""
+    
+    func greetCustomer() {
         print("Welcome to your virtual bank system.")
     }
-    func AccountSelection() {
+    func accountSelection() {
         print("What account would you like to open?")
         print("1. Debit account")
         print("2. Credit account")
     }
     
-    var accountType = ""
     
-    func CreateBankAccountType (numberPadKey: Int) {
+    func createBankAccountType (numberPadKey: Int) {
         print("The selected option is \(numberPadKey).")
-        switch numberPadKey {
-        case 1:
-            accountType = "debit"
-        case 2:
-            accountType = "credit"
-        default:
-            print("Invalid input: \(numberPadKey).")
-        }
-        print("You have opened a \(accountType) account.")
+            switch numberPadKey {
+            case 1:
+                accountType = "debit"
+            case 2:
+                accountType = "credit"
+            default:
+                print("Invalid input: \(numberPadKey).")
+            }
+            print("You have opened a \(accountType) account.")
     }
 }
 
+//Creating an instance
 var testAccount = BankAccountInterface()
-testAccount.GreetCustomer()
-testAccount.AccountSelection()
-testAccount.CreateBankAccountType(numberPadKey: 2)
+testAccount.greetCustomer()
+
+//Using a repeat whiole loop to grab a random int to make the account type and then call the CreateBankAccountType function with the random int
+repeat {
+    testAccount.accountSelection()
+    let numberPadKey = Int.random(in:1...5)
+    testAccount.createBankAccountType(numberPadKey: numberPadKey)
+} while testAccount.accountType == ""
+
