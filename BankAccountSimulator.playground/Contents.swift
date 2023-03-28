@@ -33,7 +33,7 @@ class BankAccountInterface {
 var testAccount = BankAccountInterface()
 testAccount.greetCustomer()
 
-//Using a repeat whiole loop to grab a random int to make the account type and then call the CreateBankAccountType function with the random int
+//Using a repeat while loop to grab a random int to make the account type and then call the CreateBankAccountType function with the random int
 repeat {
     testAccount.accountSelection()
     let numberPadKey = Int.random(in:1...5)
